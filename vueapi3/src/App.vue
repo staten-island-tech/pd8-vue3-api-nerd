@@ -16,7 +16,9 @@ import testpage from './components/testapi.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-    <h1></h1>
+    <div>
+      <testpage/>
+    </div>
   </header>
 
   <RouterView />
