@@ -5,18 +5,20 @@
 import { ref } from 'vue';
 import { onMounted } from 'vue';
 
-let apidata = ref('')
+let allrace = []
 
 async function getapi(){
-    let res = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
+    let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
     let data = await res.json()
-    data.forEach(element => {
-        apidata.value = element
-    });
-
+    console.log(data)
+    allrace.push(data[0].perp_race)
+let i = 1
+if(data[i].perp_race != data[i-0]){
+    allrace.push(data)
+}
 }
 onMounted(() =>{    
     getapi()
+    console.log(allrace)
 })
-console.log(apidata)
 </script>
