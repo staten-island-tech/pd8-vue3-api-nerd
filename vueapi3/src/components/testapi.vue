@@ -20,5 +20,6 @@ if(data[i].perp_race != data[i-0]){
 onMounted(() =>{    
     getapi()
     console.log(allrace)
+    console.log("hfjdcndncdc")
 })
 </script>
