@@ -5,11 +5,20 @@ import { ref } from 'vue';
 import { onMounted } from 'vue';
 
 let allrace = []
+let black = 0
+let white = 0
+let asianPacificianIslander = 0
+let blackhispanic = 0
+let whitehispanic = 0
+let americanindianAlaskanNative = 0
+let unknown = 0
+
+let info = []
 
 async function getapi(){
     let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
     let data = await res.json()
-    console.log(data)
+    info.push(data)
     allrace.push(data[0].perp_race)
     let i = 1
     while(i <= 1000){
@@ -21,8 +30,15 @@ async function getapi(){
         }
     }
 }
+
+function test(){
+    
+}
+
 onMounted(() =>{    
     getapi()
     console.log(allrace)
+    console.log(info)
+    test()
 })
 </script>
