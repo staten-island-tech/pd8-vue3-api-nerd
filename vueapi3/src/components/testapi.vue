@@ -12,14 +12,18 @@ async function getapi(){
     let data = await res.json()
     console.log(data)
     allrace.push(data[0].perp_race)
-let i = 1
-if(data[i].perp_race != data[i-0]){
-    allrace.push(data)
-}
+    let i = 1
+    while(i <= 1000){
+        if(allrace.includes(data[i].perp_race)){
+            i++
+        }else{
+            allrace.push(data[i].perp_race)
+            i++
+        }
+    }
 }
 onMounted(() =>{    
     getapi()
     console.log(allrace)
-    console.log("hfjdcndncdc")
 })
 </script>
