@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import information from './components/AgeData.vue'
 import testpage from './components/testapi.vue'
 </script>
 
@@ -17,7 +17,7 @@ import testpage from './components/testapi.vue'
       </nav>
     </div>
     <div>
-      <testpage/>
+      <testpage />
     </div>
   </header>
 

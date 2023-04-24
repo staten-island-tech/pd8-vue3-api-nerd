@@ -5,15 +5,15 @@
 import { ref } from 'vue'
 import { onMounted } from 'vue'
 
-// let allrace = []
+let allrace = []
 
 async function getapi() {
   let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
   let data = await res.json()
-  console.log(data.perp_race)
+  console.log(data)
 }
 
-getapi()
+onMounted(() => getapi())
 
 // let i = 1
 // if(data[i].perp_race != data[i-0]){
