@@ -1,10 +1,11 @@
 <template>
+  <div v-for="data in apidata">
+    <h1>{{ data.perp_race }}</h1>
+  </div>
 </template>
 <script setup>
-import { ref } from 'vue';
-import { onMounted } from 'vue';
-
-
+import { ref } from 'vue'
+import { onMounted } from 'vue'
 
 let apidata = ref('')
 
@@ -17,20 +18,14 @@ let whitehispanic = 0
 let americanindianAlaskanNative = 0
 let unknown = 0
 
-
-
-
-async function getapi(){
-    let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
-    let data = await res.json()
-    apidata.value = data
+async function getapi() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
+  let data = await res.json()
+  apidata.value = data
 }
 
-
-onMounted(() =>{    
-    getapi()
-    console.log(apidata)
+onMounted(() => {
+  getapi()
+  console.log(apidata)
 })
-
-
 </script>
