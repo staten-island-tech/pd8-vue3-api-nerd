@@ -1,7 +1,5 @@
 <template>
-  <div v-for="data in apidata">
-    <h1>{{ data.perp_race }}</h1>
-  </div>
+  
 </template>
 <script setup>
 import { ref } from 'vue'

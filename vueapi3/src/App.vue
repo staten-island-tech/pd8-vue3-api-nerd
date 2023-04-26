@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import raceData from './components/raceData.vue'
+import HomePage from './views/HomePage.vue'
 </script>
 
 <template>
