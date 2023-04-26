@@ -6,10 +6,7 @@ import HomePage from './views/HomePage.vue'
 
 <template>
   <header>
-    <div>
-      <h1>Hello World</h1>
-      <raceData/>
-    </div>
+    
   </header>
 
   <RouterView />
