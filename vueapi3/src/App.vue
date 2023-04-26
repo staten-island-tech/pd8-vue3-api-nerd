@@ -1,15 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import raceData from './components/raceData.vue'
-import HomePage from './views/HomePage.vue'
 </script>
 
 <template>
   <header>
-    <div>
-      <h1>Hello World</h1>
-      <raceData/>
-    </div>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
+    <div></div>
   </header>
 
   <RouterView />
