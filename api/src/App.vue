@@ -6,8 +6,8 @@ import RacePage from './views/RacePage.vue'
 
 <template>
   <header>
-    <HomePage/>
-    <RacePage/>
+    <HomePage />
+    <RacePage />
   </header>
 
   <RouterView />
