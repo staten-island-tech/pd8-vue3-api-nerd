@@ -12,10 +12,13 @@ import {
   LinearScale
 } from 'chart.js'
 
+let apidata = ref('')
+
 async function getdata() {
   let res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
   let data = await res.json()
   console.log(data)
+  apidata.value = data
 }
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
@@ -31,6 +34,7 @@ const chartOptions = {
 
 onMounted(() => {
   getdata()
+  console.log(apidata)
 })
 </script>
 
