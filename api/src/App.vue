@@ -1,5 +1,15 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import {onMounted} from 'vue'
+
+async function getapi(){
+  let res = import('https://data.cityofnewyork.us/resource/kwvk-z7i9.json')
+  let data = await res.json()
+  console.log(data)
+}
+onMounted(() => {
+  getapi()
+})
 
 </script>
 
