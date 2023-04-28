@@ -16,12 +16,14 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
   name: 'BarChart',
-  components: { Bar },
+  components: {
+    Bar
+  },
   data() {
     return {
       chartData: {
         labels: ['Brooklyn', 'Staten Island', 'Manhattan', 'Queen', 'Bronx'],
-        datasets: [{ data: [40, 20, 12] }]
+        datasets: [{ data: [40, 20, 12, 200, 1] }]
       },
       chartOptions: {
         responsive: true
@@ -33,14 +35,8 @@ export default {
       BX: 0
     }
   },
-  methods: {
-    getapi: async function () {
-      let res = import('https://data.cityofnewyork.us/resource/kwvk-z7i9.json')
-      let data = await res.json()
-      console.log(data)
-    }
-  },
-  mounted: {}
+  methods: {},
+  beforeMount() {}
 }
 </script>
 
