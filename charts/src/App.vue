@@ -6,7 +6,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
@@ -15,8 +14,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/about">Gender</RouterLink>
       </nav>
     </div>
-
-    
   </header>
 
   <RouterView />
