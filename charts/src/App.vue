@@ -1,5 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import Home from './views/Home.vue'
 import GenderPage from './views/gender.vue'
 import RacePage from './views/race.vue'
 // import ChartRaces from './components/ChartRaces.vue'
@@ -29,18 +30,27 @@ export default {
 <template>
   <header>
     <nav class="navigate">
-      <RouterLink to="/race" class="btn">Races</RouterLink>
+      <RouterLink to="/race" class="btn">Race</RouterLink>
       <RouterLink to="/gender" class="btn">Gender</RouterLink>
     </nav>
+    <div>
+      <h1 class="head">New York Crime Statistic</h1>
+    </div>
   </header>
 
   <RouterView />
 </template>
 
 <style scoped>
+.head {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 50px;
+}
 .btn {
-  margin-left: 10px;
-  margin-right: 10px;
+  font-size: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .navigate {

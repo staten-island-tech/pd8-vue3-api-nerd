@@ -6,12 +6,17 @@ const router = createRouter({
     {
       path: '/race',
       name: 'racestatistic',
-      component: () => import ('../views/race.vue')
+      component: () => import('../views/race.vue')
     },
     {
       path: '/gender',
       name: 'genderstatistic',
-      component: () => import ('../views/gender.vue')
+      component: () => import('../views/gender.vue')
+    },
+    {
+      path: '/home',
+      name: '',
+      component: () => import('../views/Home.vue')
     }
   ]
 })

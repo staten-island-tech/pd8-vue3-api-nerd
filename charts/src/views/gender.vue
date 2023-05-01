@@ -1,7 +1,21 @@
 <template>
-  <h1>Arrests by Gender</h1>
-  <canvas id="myChart" width="100" height="100"></canvas>
+  <div class="page">
+    <h1>Arrests by Gender</h1>
+    <div class="chart">
+      <canvas id="myChart" width="200" height="200"></canvas>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.page {
+  text-align: center;
+}
+.chart {
+  max-width: 700px;
+  max-height: 700px;
+}
+</style>
 
 <script>
 const APIURL = 'https://data.cityofnewyork.us/resource/uip8-fykc.json'
