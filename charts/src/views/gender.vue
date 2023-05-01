@@ -1,12 +1,12 @@
 <template>
-  Arrests by Gender
-  <canvas id="myChart" width="200" height="200"></canvas>
+  <h1>Arrests by Gender</h1>
+  <canvas id="myChart" width="100" height="100"></canvas>
 </template>
 
 <script>
 const APIURL = 'https://data.cityofnewyork.us/resource/uip8-fykc.json'
 
-async function CheckF() {
+async function getData() {
   const response = await fetch(APIURL)
   const Info = await response.json()
   let females = 0
@@ -15,65 +15,46 @@ async function CheckF() {
       females++
     }
   })
-  console.log(females)
-  return females
-}
-
-async function CheckM() {
-  const response = await fetch(APIURL)
-  const Info = await response.json()
   let males = 0
   Info.forEach((person) => {
     if (person.perp_sex.includes('M')) {
       males++
     }
   })
-  console.log(males)
-  return males
-}
-
-CheckF()
-
-CheckM()
-
-async function getData() {
-  const males = await CheckM()
-  const females = await CheckF()
-  return [males, females]
+  return { males, females }
 }
 
 import Chart from 'chart.js/auto'
 
-async function createChart() {
-  const [males, females] = await getData()
-  const ctx = document.getElementById('myChart').getContext('2d')
-  const chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Males', 'Females'],
-      datasets: [
-        {
-          label: 'Arrest Datas for Genders',
-          data: [males, females],
-          backgroundColor: ['blue']
-        }
-      ]
-    },
-    options: {
-      maintainAspectRatio: true,
-      aspectRatio: 1,
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true
+export default {
+  mounted() {
+    getData().then((data) => {
+      console.log(data.males)
+      console.log(data.females)
+      const myChart = new Chart(document.getElementById('myChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Male', 'Female'],
+          datasets: [
+            {
+              label: 'Arrest by Gender',
+              data: [data.males, data.females],
+              backgroundColor: ['rgba(0, 0, 0, 0.7)', 'rgba(255, 255, 255, 0.7)'],
+              borderColor: ['rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)'],
+              borderWidth: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'right'
             }
           }
-        ]
-      }
-    }
-  })
+        }
+      })
+    })
+  }
 }
-
-createChart()
 </script>
