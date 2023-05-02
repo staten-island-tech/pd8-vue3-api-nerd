@@ -1,6 +1,16 @@
 <template>
   <div class="page">
     <h1>Arrests by Gender</h1>
+
+    <div>
+    <input @click="updatecheckbox" ref="si" type="checkbox" id="coding" name="interest" value="S" checked />
+    <label for="S">Staten Island</label>
+  </div>
+  <div>
+    <input ref="bk" type="checkbox" id="coding" name="interest" value="B" checked />
+    <label for="B">Brooklyn</label>
+  </div>
+
     <div class="chart">
       <canvas id="myChart" width="200" height="200"></canvas>
     </div>
@@ -41,7 +51,23 @@ async function getData() {
 import Chart from 'chart.js/auto'
 
 export default {
+  data(){
+    return{
+        filtervalue: []
+    }
+  },
+  methods:{
+    updatecheckbox() {
+    if(this.$refs.si.checked){
+        this.filtervalue.push("S")
+        console.log(this.filtervalue)
+    }else{
+      console.log("si is not selected")
+    }
+   }
+  },
   mounted() {
+    this.updatecheckbox()
     getData().then((data) => {
       console.log(data.males)
       console.log(data.females)
