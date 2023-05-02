@@ -53,7 +53,7 @@ export default {
             {
               label: 'Arrest by Gender',
               data: [data.males, data.females],
-              backgroundColor: ['rgba(0, 0, 0, 0.7)', 'rgba(255, 255, 255, 0.7)'],
+              backgroundColor: ['rgba(0, 0, 0, 0.7)', 'rgba(0, 0, 0, 0.7)'],
               borderColor: ['rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)'],
               borderWidth: 3
             }
